@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>Login | GuitarHow</title>
+    <title>Cadastro | GuitarHow</title>
 </head>
 <body>
     <div class="screen">
-        <div class="box-login">
-            <h1>Login</h1>
+        <div class="box-cadastro">
+            <h1>Cadastro</h1>
             <div class="conteiner-input">
+                <input type="text" placeholder="Usuário" id="input_usuario">
                 <input type="email" placeholder="E-mail" id="input_email">
                 <input type="password" placeholder="Senha" id="input_senha">
+                <input type="password" placeholder="Confirme sua senha" id="input_confirmacao">
             </div>
             <button onclick="entrar()">Entrar</button>
-            <p>Ainda não tem uma conta? <span onclick="irParaCadastro()">Cadastre-se</span></p>
+            <p>Já tem uma conta? <span onclick="irParaLogin()">Login</span></p>
         </div>
     </div>
 </body>

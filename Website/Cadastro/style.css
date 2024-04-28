@@ -14,10 +14,10 @@ body {
     justify-content: center;
     align-items: center;
 }
-.box-login {
+.box-cadastro {
     background-color: #04000B;
     width: 550px;
-    height: 450px;
+    height: 600px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;

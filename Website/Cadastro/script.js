@@ -9,6 +9,6 @@ function entrar() {
     }
 }
 
-function irParaCadastro() {
-    window.location.href = '../Cadastro/index.html'
+function irParaLogin() {
+    window.location.href = '../Login/index.html'
 }
