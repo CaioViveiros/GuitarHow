@@ -63,7 +63,7 @@ button {
 button:hover {
     background-color: #2c1b4b;
     color: #04000B;
-    transition: 0.28s;
+    transition: 0.3s;
     cursor: pointer;
 }
 p {
