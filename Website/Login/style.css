@@ -89,16 +89,16 @@ span:hover {
     100%{opacity: 100%; transform: translateX(0);}
 }
 .botao_home {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     position: absolute;
     right: 95%;
     bottom: 90%;
     animation: aparecer_home 1s ease-in-out;
 }
 .botao_home:hover {
-    width: 43px;
-    height: 43px;
+    width: 38px;
+    height: 38px;
     cursor: pointer;
     transition: 0.2s ease-out;
 }

@@ -5,23 +5,27 @@ body {
     background-color: #04000B;
     font-family: "Montserrat", sans-serif;
     color: white;
-}
-.screen {
-    width: 100%;
-    height: 750px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
-.header {
+header {
     width: 100%;
-    height: 20%;
-    position: sticky;
-    bottom: 100%;
+    height: 17%;
     display: flex;
+    background-color: #04000B;
+    position: fixed;
     justify-content: space-around;
     align-items: center;
+    animation: aparecer 1s ease-in-out;
+}
+header:hover {
+    cursor: pointer;
+}
+@keyframes aparecer {
+    0%{opacity: 0; transform: translateY(-200px);}
+    100%{opacity: 100%; transform: translateY(0);}
 }
 h2 {
     font-size: 30px;
@@ -41,9 +45,8 @@ li {
     list-style: none;
 }
 li:hover {
-    cursor: pointer;
     color: #604299;
-    transition: 0.8s;
+    transition: 0.5s;
 }
 .botao-login {
     width: 120px;
@@ -52,11 +55,23 @@ li:hover {
     color: #604299;
     font-size: 18px;
     border: 2px solid #604299;
-    border-radius: 15px;
-    transition: 0.6s;
+    border-radius: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 .botao-login:hover {
     background-color: #604299;
-    color: #04000B;
-    transition: 0.2s ease-in-out;
+    cursor: pointer;
+    color: white;
+    transition: 0.6s
+}
+@keyframes aparecer_home{
+    0%{opacity: 0; transform: translateX(-100px);}
+    100%{opacity: 100%; transform: translateX(0);}
+}
+.content {
+    padding: 20px;
+    margin-top: 7.5%;
+}
+.imagem-home {
+    animation: aparecer_home 1s ease-in-out;
 }

@@ -12,3 +12,6 @@ function entrar() {
 function irParaCadastro() {
     window.location.href = '../Cadastro/index.html'
 }
+function irParaHome() {
+    window.location.href = '../Website/index.html'
+}
