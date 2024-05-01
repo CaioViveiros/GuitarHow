@@ -24,7 +24,7 @@ body {
     flex-direction: column;
     align-items: center;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
-    animation: aparecer 1s ease-in-out;
+    animation: appear_up 1s ease-in-out;
 }
 .conteiner-input {
     display: flex;
@@ -79,11 +79,11 @@ span:hover {
     transition: 0.2s;
     cursor: pointer;
 }
-@keyframes aparecer {
+@keyframes appear_up {
     0%{opacity: 0; transform: translateY(-400px);}
     100%{opacity: 100%; transform: translateY(0);}
 }
-@keyframes aparecer_home {
+@keyframes appear_left {
     0%{opacity: 0; transform: translateX(-100px);}
     100%{opacity: 100%; transform: translateX(0);}
 }
@@ -93,7 +93,7 @@ span:hover {
     position: absolute;
     right: 95%;
     bottom: 90%;
-    animation: aparecer_home 1s ease-in-out;
+    animation: appear_left 1s ease-in-out;
 }
 .botao_home:hover {
     width: 38px;
