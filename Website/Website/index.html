@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-    <title>Website | GuitarNow</title>
+    <title>Website | GuitarHow</title>
 </head>
 
 <body>
     <header>
-        <h2><span>Guitar</span>Now</h2>
+        <h2><span>Guitar</span>How</h2>
         <ul>
             <li style="color: #604299;"><a href="#scroll_1">Home</a></li>
             <li><a href="#scroll_2">Sobre</a></li>
-            <li><a href="#scroll_3">GuitarHow</a></li>
+            <li><a href="#scroll_3">Funcionalidade</a></li>
             <li><a href="#scroll_4">Contato</a></li>
         </ul>
         <button onclick="irParaLogin()" class="botao-login">Login</button>
@@ -27,9 +27,9 @@
         <div class="divisao"></div>
         <h1>Sobre</h1>
         <div class="sessao">
-            <img src="../Imagens/imagem_sobre.png">
+            <img class="imagem-sobre" src="../Imagens/imagem_sobre.png">
             <div class="box-sobre">
-                <h2>O que é <span>GuitarNow?</span></h2>
+                <h2>O que é <span>GuitarHow?</span></h2>
                 <p>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque cum dicta ipsam fuga
                     sapiente architecto optio sed, soluta asperiores dolorem provident. Quidem aliquam aut possimus
@@ -43,37 +43,23 @@
                 </p>
                 <h2>Qual o <span>propósito?</span></h2>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque cum dicta ipsam fuga
-                    sapiente architecto optio sed, soluta asperiores dolorem provident. Quidem aliquam aut possimus
-                    doloribus dolorum molestiae aperiam!
+                    Acreditamos que a música tem o poder de transformar vidas, e a guitarra é um instrumento que pode dar asas à criatividade e expressão pessoal. Somos uma plataforma online dedicada a tornar o aprendizado da guitarra acessível, envolvente e gratificante para todos, desde iniciantes até músicos experientes.
                 </p>
             </div>
         </div>
         <div id="scroll_3"></div>
         <div class="divisao"></div>
-        <h1>GuitarHow</h1>
+        <h1>Funcionalidade</h1>
         <div class="sessao">
-            <div class="box-guitarhow">
-                <h2>O que é <span>GuitarHow?</span></h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque cum dicta ipsam fuga
-                    sapiente architecto optio sed, soluta asperiores dolorem provident. Quidem aliquam aut possimus
-                    doloribus dolorum molestiae aperiam!
-                </p>
-                <h2><span>Objetivo</span></h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque cum dicta ipsam fuga
-                    sapiente architecto optio sed, soluta asperiores dolorem provident. Quidem aliquam aut possimus
-                    doloribus dolorum molestiae aperiam!
-                </p>
-                <h2><span>Funcionalidade</span></h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem cumque cum dicta ipsam fuga
-                    sapiente architecto optio sed, soluta asperiores dolorem provident. Quidem aliquam aut possimus
-                    doloribus dolorum molestiae aperiam!
-                </p>
+            <div class="box-funcionalidade">
+                <div class="cards">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <button onclick="irParaCadastro()">Estou interressado</button>
             </div>
-            <img src="../Imagens/imagem_sobre.png">
         </div>
         <div id="scroll_4"></div>
         <div class="divisao"></div>
@@ -81,13 +67,13 @@
         <div class="sessao">
             <form class="box-contato">
                <input required type="text" class="input-email" placeholder="E-mail">
-               <input  required type="text" class="input-mensagem" placeholder="Mensagem">
+               <input required type="text" class="input-mensagem" placeholder="Mensagem">
                <button type="submit">Enviar</button>
             </form>
         </div>
     </div>
     <footer>
-        <p>© All Copyright 2024 by GuitarNow</p>
+        <p>© All Copyright 2024 by GuitarHow</p>
         <p>Termos de Uso | Politicas de privacidade</p>
     </footer>
 </body>
