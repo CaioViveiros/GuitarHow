@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/login.css">
+    <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="../Js/link.js"></script>
     <script src="../Js/login.js"></script>
     <title>Login | GuitarHow</title>
@@ -20,6 +21,10 @@
             </div>
             <button onclick="entrar()">Entrar</button>
             <p>Ainda não tem uma conta? <span onclick="irParaCadastro()">Cadastre-se</span></p>
+        </div>
+        <div class="display-hidden" id="div_alerta">
+            <small id="mensagem_alerta"></small>
+            <i class="fa-solid fa-xmark" onclick="fecharAlerta()"></i>
         </div>
     </div>
 </body>

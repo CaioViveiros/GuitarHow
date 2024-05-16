@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../Css/cadastro.css">
+    <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="../Js/cadastro.js"></script>
     <script src="../Js/link.js"></script>
     
@@ -22,12 +22,12 @@
                 <input type="password" placeholder="Senha" id="input_senha">
                 <input type="password" placeholder="Confirme sua senha" id="input_confirmacao_senha">
             </form>
-            <button onclick="Cadastrar()">Entrar</button>
+            <button onclick="cadastrar()">Entrar</button>
             <p>Já tem uma conta? <span onclick="irParaLogin()">Login</span></p>
         </div>
         <div class="display-hidden" id="div_alerta">
             <small id="mensagem_alerta"></small>
-            <i class="fa-solid fa-xmark" onclick="FecharAlerta()"></i>
+            <i class="fa-solid fa-xmark" onclick="fecharAlerta()"></i>
         </div>
     </div>
 </body>

@@ -137,7 +137,7 @@ span:hover {
 }
 .alerta {
     position: absolute;
-    bottom: 500px;
+    top: 200px;
     z-index: 10;
     width: 620px;
     height: 150px;
