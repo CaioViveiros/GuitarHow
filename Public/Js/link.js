@@ -16,6 +16,6 @@ function irParaLogin() {
 function irParaHome() {
     window.location.href = '../Html/website.html'
 }
-function irParaGuitarHow() {
+function irParaPlataformaIniciante() {
     window.location.href = '../Html/plataforma_iniciante.html'
 }

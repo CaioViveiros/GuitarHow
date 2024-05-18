@@ -80,8 +80,42 @@ function cadastrar() {
                 if (senha != confirmacaoSenha) {
                     mensagem_alerta.innerHTML = 'Suas senhas devem ser iguais'
                     alertar()
+
                 } else {
-                    irParaBemVindo()
+
+                    alert('Passou nas validações')
+
+                    // WEB DATA VIZ
+
+                    fetch("/usuarios/cadastrar", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            usuario: usuario,
+                            email: email,
+                            senha: senha
+                        }),
+                    })
+                        .then(function (resposta) {
+                            console.log("resposta: ", resposta);
+                
+                            if (resposta.ok) {
+                                
+                                alert('Cadastrou')
+
+                            } else {
+                                alert('Não cadastrou')
+                            }
+                        })
+                        .catch(function (resposta) {
+                            console.log(`#ERRO: ${resposta}`);
+                            finalizarAguardar();
+                        });
+                
+                    return false;
+
                 }
             }
         }
@@ -100,4 +134,3 @@ function fecharAlerta() {
     alerta.classList.remove('alerta')
     alerta.classList.add('display-hidden')
 }
-
