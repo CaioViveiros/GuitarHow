@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/plataforma_iniciante.css">
+    <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
+    <script src="../Js/link.js"></script>
+    <script src="../Js/plataforma_iniciante.js"></script>
+    <title>GuitarHow</title>
+</head>
+<body>
+    <header>
+        <p class="ola">Olá, Marcus Ferreira</p>
+        <h2><span>Guitar</span>How</h2>
+        <p class="experiencia">Iniciante</p>
+    </header>
+    <div class="menu">
+        <ul>
+            <li>Home</li>
+            <li>Conteúdo</li>
+            <li>Prática</li>
+            <li>Progressão</li>
+        </ul>
+        <p onclick="irParaHome()">Sair</p>
+    </div>
+    <div class="content">
+        <div class="sessao-home">
+
+        </div>
+        <div class="sessao-conteudo">
+
+            <div class="box-conteudo">
+                <div><p>Conhecendo o instrumento</p></div>
+                <div><p>Escalas</p></div>
+            </div>
+
+            <div class="box-conteudo-block" onclick="alertar()">
+                <div><p>Acordes</p></div>
+                <i class="fa-solid fa-lock"></i>
+                <div><p>Campo harmônico</p></div>
+            </div>
+            
+            <div class="box-conteudo-block" onclick="alertar()">
+                <div><p>Escala pentatonica</p></div>
+                <i class="fa-solid fa-lock"></i>
+                <div><p>Tétrades</p></div>
+            </div>
+
+            <div class="display-hidden" id="div_alerta_conteudo" onclick="fecharAlerta()">
+                <small id="mensagem_alerta">Avançe ao próximo nível para desbloquear novos conteúdos.</small>
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </div>
+        </div>
+        <div class="sessao-pratica">
+
+        </div>
+        <div class="sessao-progressao">
+
+        </div>
+    </div>
+</body>
+</html>
