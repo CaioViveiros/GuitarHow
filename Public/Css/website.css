@@ -130,13 +130,23 @@ a:hover {
     display: flex;
     flex-direction: row;
     width: 1300px;
-    height: 550px;
+    height: 450px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+.cards i {
+    transform: scale(6);
+    margin-top: 60px;
+    margin-bottom: 50px;
+    color: #604299;
+}
 .cards div {
-    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
     height: 100%;
     border-radius: 20px;
     background-color: transparent;
@@ -147,6 +157,17 @@ a:hover {
 .cards div:hover {
     transform: scale(0.95);
     background-color: rgba(97, 66, 153, 0.2);
+}
+.cards h2 {
+    color: #604299;
+}
+.cards p {
+    font-size: 17px;
+    margin-top: 40px;
+    text-align: center;
+    width: 80%;
+    color: #604299;
+    font-weight: bold;
 }
 .box-funcionalidade button {
     width: 580px;

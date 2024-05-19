@@ -17,18 +17,44 @@
     </header>
     <div class="menu">
         <ul>
-            <li>Home</li>
-            <li>Conteúdo</li>
-            <li>Prática</li>
-            <li>Progressão</li>
+            <li onclick="mostrarHome()">Home</li>
+            <li onclick="mostrarConteudo()">Conteúdo</li>
+            <li onclick="mostrarPratica()">Prática</li>
+            <li onclick="mostrarProgressao()">Progressão</li>
         </ul>
         <p onclick="irParaHome()">Sair</p>
     </div>
     <div class="content">
-        <div class="sessao-home">
-
+        
+        <div class="sessao-home" id="div_sessao_home">
+            <h1>Bem-Vindo</h1>
+            <div>
+                <h2>Por onde começar?</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    It has survived not only five centuries.
+                </p>
+            </div>
+            <div>
+                <h2>Como avaliarei minha progressão?</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    It has survived not only five centuries.
+                </p>
+            </div>
+            <div>
+                <h2>Como avaliarei minha progressão?</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                    It has survived not only five centuries.
+                </p>
+            </div>
         </div>
-        <div class="sessao-conteudo">
+
+        <div class="sessao-conteudo" id="div_sessao_conteudo">
 
             <div class="box-conteudo">
                 <div><p>Conhecendo o instrumento</p></div>
@@ -52,12 +78,31 @@
                 <i class="fa-solid fa-circle-exclamation"></i>
             </div>
         </div>
-        <div class="sessao-pratica">
+
+        <div class="sessao-pratica" id="div_sessao_pratica">
+            <button class="botao-inicio" id="button_inicio" onclick="iniciarTeste()">Iniciar Prática</button>
+            <div class="box-teste" id="div_box_teste">
+                <div class="box-pergunta">
+                    <div class="numero-questao" id="div_numero_questao">1</div>
+                    <p>Qual agrupamento de notas compõe corretamente o acorde de Am?</p>
+                </div>
+                <div class="box-resposta">
+                    <div class="options">
+                        <div onclick="proximaPergunta()">A</div>
+                        <div onclick="proximaPergunta()">B</div>
+                    </div>
+                    <div class="options">
+                        <div onclick="proximaPergunta()">C</div>
+                        <div onclick="proximaPergunta()">D</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sessao-progressao" id="div_sessao_progressao">
 
         </div>
-        <div class="sessao-progressao">
-
-        </div>
+        
     </div>
 </body>
 </html>

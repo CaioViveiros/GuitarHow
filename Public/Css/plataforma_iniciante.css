@@ -108,14 +108,36 @@ header h2 span {
     align-items: center;
 }
 
+/* SESSAO HOME */
 .sessao-home {
-    display: none;
+    display: flex;
     width: 100%;
     height: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 10%;
 }
 
+.sessao-home h1 {
+    font-size: 50px;
+    color: #604299;
+}
+
+.sessao-home h2 {
+    color: #604299;
+}
+
+
+.sessao-home div {
+    width: 1000px;
+    margin-bottom: 20px;
+}
+
+/* SESSAO CONTEUDO */
+
 .sessao-conteudo {
-    display: flex;
+    display: none;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: column;
@@ -229,9 +251,113 @@ header h2 span {
     position: absolute;
 }
 
+/* SESSAO PRATICA */
+
 .sessao-pratica {
     display: none;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
 }
+
+.botao-inicio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 50px;
+    width: 500px;
+    height: 200px;
+    border-radius: 20px;
+    border: 3px solid #604299;
+    background-color: transparent;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;   
+    color: white;
+    transition: 0.6s;
+}
+
+.box-teste {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    width: 900px;
+    height: 600px;
+    border-radius: 20px;
+    background-color: #190B32;
+}
+.botao-inicio:hover {
+    background-color: #3b2760;
+}
+
+.box-pergunta {
+    width: 92%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.numero-questao {
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    border: 3px solid #604299;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 390px;
+    bottom: 50px;
+    font-size: 22px;
+    color: #604299;
+    font-weight: bold;
+}
+
+.box-pergunta p {
+    font-size: 20px;
+    text-align: center;
+}
+.box-resposta {
+    width: 92%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.options {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.options div {
+    border: 3px solid #604299;
+    width: 380px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    transition: 0.7s;
+}
+
+.options div:hover {
+    background-color: #3b2760;
+    cursor: pointer;
+}
+
+/* SESSAO PROGRESSAO */
 
 .sessao-progressao {
     display: none;
