@@ -2,7 +2,7 @@
 
 body {
     margin: 0 auto;
-    background-image: url('../Assets/fundo_login.png');
+    background-image: url('../assets/fundo_login.png');
     background-size: cover;
     font-family: "Montserrat", sans-serif;
     color: white;

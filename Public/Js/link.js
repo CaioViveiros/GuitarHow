@@ -1,21 +1,21 @@
 function irParaLogin() {
-    window.location.href = '../Html/login.html'
+    window.location.href = ''
 }
 function irParaCadastro() {
-    window.location.href = '../Html/cadastro.html'
+    window.location.href = './cadastro.html'
 }
 function irParaHome() {
-    window.location.href = '../Html/website.html'
+    window.location.href = './website.html'
 }
 function irParaBemVindo() {
-    window.location.href = '../Html/bem-vindo.html'
+    window.location.href = './bem-vindo.html'
 }
 function irParaLogin() {
-    window.location.href = '../Html/login.html'
+    window.location.href = './login.html'
 }
 function irParaHome() {
-    window.location.href = '../Html/website.html'
+    window.location.href = './website.html'
 }
 function irParaPlataformaIniciante() {
-    window.location.href = '../Html/plataforma_iniciante.html'
+    window.location.href = './plataforma_iniciante.html'
 }

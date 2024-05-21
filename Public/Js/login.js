@@ -15,6 +15,12 @@ function entrar() {
     } else if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
         mensagem_alerta.innerHTML = 'Por favor, insira um E-mail válido para realizar o cadastro'
         alertar()
+
+    } else {
+
+        // WEB DATA VIZ
+        
+    
     }
 }
 
