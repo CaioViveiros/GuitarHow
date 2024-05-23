@@ -51,6 +51,7 @@ function cadastrar(req, res) {
     var usuario = req.body.usuarioServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var nivelExperiencia = req.body.experienciaServer;
 
     // Faça as validações dos valores
     if (usuario == undefined) {
@@ -59,10 +60,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (nivelExperiencia == undefined) {
+        res.status(400).send("Sua experiencia está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(usuario, email, senha)
+        usuarioModel.cadastrar(usuario, email, senha, nivelExperiencia)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -80,42 +83,7 @@ function cadastrar(req, res) {
     }
 }
 
-function cadastrarExperiencia(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var usuario = req.body.usuarioServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var nivelExperiencia = req.body.nivelExperienciaServer; 
-
-    // Faça as validações dos valores
-    if (nivelExperiencia == undefined) {
-        res.status(400).send("Sua experiencia está undefined!");
-    } else {
-
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarExperiencia(nivelExperiencia)
-        .then(
-            function (resultado) {
-                    JSON.stringify(resultado)
-                    console.log(resultado);
-
-                    res.json({
-                        nivelExperiencia: resultado[0].nivelExperiencia
-                    });
-    
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("\nHouve um erro a cadastrar experiencia", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-    }
-}
-
 module.exports = {
     autenticar,
-    cadastrar,
-    cadastrarExperiencia
+    cadastrar
 }

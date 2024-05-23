@@ -1,8 +1,8 @@
-function cadastrar() {
-    const usuario = input_usuario.value
-    const email = input_email.value
-    const senha = input_senha.value
-    const confirmacaoSenha = input_confirmacao_senha.value
+function validar() {
+    let usuario = input_usuario.value
+    let email = input_email.value
+    let senha = input_senha.value
+    let confirmacaoSenha = input_confirmacao_senha.value
 
     const erroCampoVazio = 'Por favor, preencha todos os campos para realizar o cadastro'
 
@@ -83,54 +83,90 @@ function cadastrar() {
 
                 } else {
 
-                    // WEB DATA VIZ
-                    fetch("/usuarios/cadastrar", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({
-                            // crie um atributo que recebe o valor recuperado aqui
-                            // Agora vá para o arquivo routes/usuario.js
-                            usuarioServer: usuario,
-                            emailServer: email,
-                            senhaServer: senha
-                        }),
-                    })
-                        .then(function (resposta) {
-                            console.log("resposta: ", resposta);
+                    div_screen.style.display = 'none'
+                    div_screen2.style.display = 'flex'
 
-                            if (resposta.ok) {
+                    dadosUsuario.push(usuario, email, senha)
 
-                                irParaBemVindo()
-                            
-                            } else {
-                                throw "Houve um erro ao tentar realizar o cadastro!";
-                            }
-                        })
-                        .catch(function (resposta) {
-                            console.log(`#ERRO: ${resposta}`);
-                        });
-
-                    return false;
                 }
-
             }
         }
-
     }
 }
 
+const dadosUsuario = []
 
 function alertar() {
     const alerta = document.getElementById('div_alerta')
-
     alerta.classList.remove('display-hidden')
     alerta.classList.add('alerta')
 }
 function fecharAlerta() {
     const alerta = document.getElementById('div_alerta')
-
     alerta.classList.remove('alerta')
     alerta.classList.add('display-hidden')
+}
+
+let nivelExperiencia = 0
+
+function cadastrarNivelIniciante() {
+    let usuario = dadosUsuario[0]
+    let email = dadosUsuario[1]
+    let senha = dadosUsuario[2]
+    nivelExperiencia = 1
+    cadastrar(usuario, email, senha, nivelExperiencia)
+}
+
+function cadastrarNivelIntermediario() {
+    let usuario = dadosUsuario[0]
+    let email = dadosUsuario[1]
+    let senha = dadosUsuario[2]
+    nivelExperiencia = 2
+    cadastrar(usuario, email, senha, nivelExperiencia)
+}
+
+function cadastrarNivelAvancado() {
+    let usuario = dadosUsuario[0]
+    let email = dadosUsuario[1]
+    let senha = dadosUsuario[2]
+    nivelExperiencia = 3
+    cadastrar(usuario, email, senha, nivelExperiencia)
+}
+
+
+function cadastrar(usuario, email, senha, nivelExperiencia) {
+    
+    // WEB DATA VIZ
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            usuarioServer: usuario,
+            emailServer: email,
+            senhaServer: senha,
+            experienciaServer: nivelExperiencia
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                if (nivelExperiencia > 0) {
+                    irParaPlataformaIniciante()
+                } else {
+                    alert('Nivel de experiencia menor que 0')
+                }
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+    return false;
 }

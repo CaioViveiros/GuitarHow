@@ -8,15 +8,15 @@ body {
     color: white;
 }
 
-.screen {
+.screen2 {
     width: 100%;
     height: 750px;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
-.screen h1 {
+.screen2 h1 {
     font-size: 40px;
     margin-bottom: 20px;
     margin-top: 70px;
@@ -24,7 +24,7 @@ body {
     bottom: 20px;
     animation: appear_up 1s ease-in-out;
 }
-.screen h1 span{
+.screen2 h1 span{
     font-size: 40px;
     color: #604299;
 }
