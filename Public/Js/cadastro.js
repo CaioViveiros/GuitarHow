@@ -83,8 +83,6 @@ function cadastrar() {
 
                 } else {
 
-                    alert('Passou nas validações')
-
                     // WEB DATA VIZ
                     fetch("/usuarios/cadastrar", {
                         method: "POST",
@@ -103,6 +101,8 @@ function cadastrar() {
                             console.log("resposta: ", resposta);
 
                             if (resposta.ok) {
+
+                                irParaBemVindo()
                             
                             } else {
                                 throw "Houve um erro ao tentar realizar o cadastro!";
@@ -110,7 +110,6 @@ function cadastrar() {
                         })
                         .catch(function (resposta) {
                             console.log(`#ERRO: ${resposta}`);
-                            finalizarAguardar();
                         });
 
                     return false;

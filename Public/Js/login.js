@@ -19,7 +19,38 @@ function entrar() {
     } else {
 
         // WEB DATA VIZ
-        
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    irParaPlataformaIniciante()
+                });
+
+            } else {
+
+                mensagem_alerta.innerHTML = 'Usuario ainda não cadastrado'
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
     
     }
 }
