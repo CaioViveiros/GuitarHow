@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="./css/plataforma_iniciante.css">
     <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="./js/link.js"></script>
-    <script src="./js/plataforma_iniciante.js"></script>
+    <script src="./Js/plataforma_iniciante.js"></script>   
     <title>GuitarHow</title>
 </head>
 <body>
     <header>
-        <p class="ola">Olá, Marcus Ferreira</p>
+        <p class="ola" id="p_nome_usuario"></p>
         <h2><span>Guitar</span>How</h2>
-        <p class="experiencia">Iniciante</p>
+        <p class="experiencia" id="p_experiencia"></p>
     </header>
     <div class="menu">
         <ul>
@@ -106,3 +106,18 @@
     </div>
 </body>
 </html>
+
+<script>
+    let usuario = sessionStorage.USUARIO
+    let experiencia = sessionStorage.NIVEL_EXPERIENCIA
+
+    p_nome_usuario.innerHTML = `Olá, ${usuario}`
+
+    if (experiencia == 1) {
+        p_experiencia.innerHTML = 'Iniciante'
+    } else if (experiencia == 2) {
+        p_experiencia.innerHTML = 'Intermediario'
+    } else {
+        p_experiencia.innerHTML = 'Avançado'
+    }   
+</script>

@@ -1,4 +1,4 @@
-function alertar() {
+function alertar() {    
     let alerta = document.getElementById('div_alerta_conteudo')
     alerta.classList.remove('display-hidden')
     alerta.classList.add('alerta-conteudo')

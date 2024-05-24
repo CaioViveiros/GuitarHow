@@ -1,0 +1,1 @@
+teste.innerHTML = 'ALOO'

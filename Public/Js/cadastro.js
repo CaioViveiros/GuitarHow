@@ -156,7 +156,7 @@ function cadastrar(usuario, email, senha, nivelExperiencia) {
 
             if (resposta.ok) {
                 if (nivelExperiencia > 0) {
-                    irParaPlataformaIniciante()
+                    irParaLogin()
                 } else {
                     alert('Nivel de experiencia menor que 0')
                 }
