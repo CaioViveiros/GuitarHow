@@ -157,6 +157,7 @@ a:hover {
 .cards div:hover {
     transform: scale(0.95);
     background-color: rgba(97, 66, 153, 0.2);
+    cursor: pointer;
 }
 .cards h2 {
     color: #604299;

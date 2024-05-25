@@ -2,7 +2,7 @@ function entrar() {
     const email = input_email.value
     const senha = input_senha.value
 
-    const erroCampoVazio = 'Por favor, preencha todos os campos para realizar o cadastro'
+    const erroCampoVazio = 'Por favor, preencha todos os campos para realizar o login'
 
     if (email == '') {
         mensagem_alerta.innerHTML = erroCampoVazio
@@ -13,7 +13,7 @@ function entrar() {
         alertar()
 
     } else if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-        mensagem_alerta.innerHTML = 'Por favor, insira um E-mail válido para realizar o cadastro'
+        mensagem_alerta.innerHTML = 'Email inválido'
         alertar()
 
     } else {
@@ -41,13 +41,26 @@ function entrar() {
                     sessionStorage.EMAIL = json.email;
                     sessionStorage.NIVEL_EXPERIENCIA = json.nivelExperiencia;
 
-                    
-                    irParaPlataformaIniciante()
+
+                    if (json.nivelExperiencia == 1) {
+                        setTimeout(() => {
+                            irParaPlataformaIniciante()
+                        }, 500); 
+                    } else if (json.nivelExperiencia == 2) {
+                        setTimeout(() => {
+                            irParaPlataformaIntermediario()
+                        }, 500); 
+                        
+                    } else {
+                        setTimeout(() => {
+                            irParaPlataformaAvancado()
+                        }, 500); 
+                    }
                 });
 
             } else {
-
                 mensagem_alerta.innerHTML = 'Usuario ainda não cadastrado'
+                alertar()
             }
 
         }).catch(function (erro) {
@@ -69,4 +82,5 @@ function fecharAlerta() {
     alerta.classList.remove('alerta')
     alerta.classList.add('display-hidden')
 }
+
 

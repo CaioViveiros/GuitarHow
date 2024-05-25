@@ -83,8 +83,12 @@ function validar() {
 
                 } else {
 
-                    div_screen.style.display = 'none'
-                    div_screen2.style.display = 'flex'
+                    sucessoCadastro()
+
+                    setTimeout(() => {
+                        trocarTela()
+                    }, 1000);
+
 
                     dadosUsuario.push(usuario, email, senha)
 
@@ -92,6 +96,11 @@ function validar() {
             }
         }
     }
+}
+
+function trocarTela() {
+    div_screen.style.display = 'none'
+    div_screen2.style.display = 'flex'
 }
 
 const dadosUsuario = []
@@ -169,4 +178,11 @@ function cadastrar(usuario, email, senha, nivelExperiencia) {
         });
 
     return false;
+}
+
+function sucessoCadastro() {
+    const alerta = document.getElementById('div_sucesso')
+
+    alerta.classList.remove('display-hidden')
+    alerta.classList.add('alerta-cadastro')
 }

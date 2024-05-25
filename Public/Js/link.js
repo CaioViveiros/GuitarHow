@@ -1,6 +1,3 @@
-function irParaLogin() {
-    window.location.href = ''
-}
 function irParaCadastro() {
     window.location.href = './cadastro.html'
 }
@@ -19,3 +16,10 @@ function irParaHome() {
 function irParaPlataformaIniciante() {
     window.location.href = './plataforma_iniciante.html'
 }
+function irParaPlataformaIntermediario() {
+    window.location.href = './plataforma_intermediario.html'
+}
+function irParaPlataformaAvancado() {
+    window.location.href = './plataforma_avancado.html'
+}
+

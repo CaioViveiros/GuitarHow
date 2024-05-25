@@ -99,10 +99,11 @@ header h2 span {
 }
 
 .content {
-    width: 90%;
+    width: 80%;
     height: 733px;
     margin-top: 110px;
     position: absolute;
+    right: 90px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,25 +115,78 @@ header h2 span {
     width: 100%;
     height: 100%;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
-    padding-left: 10%;
 }
 
 .sessao-home h1 {
-    font-size: 50px;
+    color: #604299;
+    font-size: 60px;
+    position: relative;
+    right: 140px;
+    top: 20px;
+}
+
+.circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 10000px;
+    background-color: #604299;
+    position: relative;
+    bottom: 120px;
+    right: 30px;
+}
+
+.box-informacoes {
+    width: 900px;
+    height: 400px;
+    background-color: #190B32;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.infos {
+    width: 60%;
+    height: 300px;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.infos p{
+    color: #604299;
+    font-size: 23px;
+    font-weight: 600;
+}
+
+.infos span {
+    width: 100%;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.rigth-side {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.rigth-side p {
+    position: relative;
+    left: 80px;
+    top: 10px;
+    font-size: 20px;
+    transition: 0.6s;
+    font-weight: 500;
+}
+
+.rigth-side p:hover {
     color: #604299;
 }
 
-.sessao-home h2 {
-    color: #604299;
-}
-
-
-.sessao-home div {
-    width: 1000px;
-    margin-bottom: 20px;
-}
 
 /* SESSAO CONTEUDO */
 
@@ -260,6 +314,7 @@ header h2 span {
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-bottom: 20px;
 }
 
 .botao-inicio {

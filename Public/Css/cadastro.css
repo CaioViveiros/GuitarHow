@@ -172,3 +172,35 @@ span:hover {
         opacity: 100%;
     }
 }
+
+.alerta-cadastro {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    width: 500px;
+    height: 120px;
+    background-color: rgba(44, 27, 75, 0.95);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: alertar-cadastro 0.6s;
+}
+
+.alerta-cadastro small {
+    font-size: 16px;
+}
+
+@keyframes alertar-cadastro {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0%;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
