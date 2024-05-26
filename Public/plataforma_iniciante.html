@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="./js/link.js"></script>
     <script src="./Js/plataforma.js"></script>   
+    <script src="./Js/pratica.js"></script>
     <title>GuitarHow</title>
 </head>
 <body>
@@ -74,23 +75,46 @@
             <div class="box-teste" id="div_box_teste">
                 <div class="box-pergunta">
                     <div class="numero-questao" id="div_numero_questao">1</div>
-                    <p>Qual agrupamento de notas compõe corretamente o acorde de Am?</p>
+                    <p id="p_questao">Qual agrupamento de notas compõe corretamente o acorde de Am?</p>
                 </div>
                 <div class="box-resposta">
                     <div class="options">
-                        <div onclick="proximaPergunta()">A</div>
-                        <div onclick="proximaPergunta()">B</div>
+                        <div onclick="responderA()" id="alternativa_a">A</div>
+                        <div onclick="responderB()" id="alternativa_b">B</div>
                     </div>
                     <div class="options">
-                        <div onclick="proximaPergunta()">C</div>
-                        <div onclick="proximaPergunta()">D</div>
+                        <div onclick="responderC()" id="alternativa_c">C</div>
+                        <div onclick="responderD()" id="alternativa_d">D</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="sessao-progressao" id="div_sessao_progressao">
+            <div class="box-metricas">
+                <div>
+                    <small>Última prática</small>
+                    <span>7/10</span>
+                </div>
+                <div>
+                    <small>Média (Ultimas 5)</small>
+                    <span>8.3</span>
+                </div>
+                <div>
+                    <small>Total de práticas</small>
+                    <span>14</span>
+                </div>
+            </div>
+            <div class="box-grafico">
 
+            </div>
+            <div class="box-evolucao">
+                <p>Iniciante</p>
+                <div class="fundo">
+                    <div class="barra"></div>
+                </div>
+                <p>Intermediario</p>
+            </div>
         </div>
         
     </div>

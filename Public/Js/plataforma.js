@@ -34,23 +34,12 @@ function mostrarPratica() {
     div_sessao_progressao.style.display = 'none'
 }
 
-function iniciarTeste() {
-    button_inicio.style.display = 'none'
-    div_box_teste.style.display = 'flex'
-    numeroQuestao = 1
-    div_numero_questao.innerHTML = numeroQuestao
+function mostrarProgressao() {
+    div_sessao_home.style.display = 'none'
+    div_sessao_conteudo.style.display = 'none'
+    div_sessao_pratica.style.display = 'none'
+    div_sessao_progressao.style.display = 'flex'
 }
 
-let numeroQuestao = 1
-function proximaPergunta() {
-    
-    if (numeroQuestao < 10) {
-        numeroQuestao += 1
-        div_numero_questao.innerHTML = numeroQuestao
-    } else {
-        alertar()
-        numeroQuestao = 1
-        mostrarPratica()
-    }
-}
+
 

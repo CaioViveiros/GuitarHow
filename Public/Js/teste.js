@@ -1,1 +1,0 @@
-teste.innerHTML = 'ALOO'
