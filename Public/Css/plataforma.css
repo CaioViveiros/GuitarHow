@@ -412,6 +412,32 @@ header h2 span {
     cursor: pointer;
 }
 
+.box-resultado {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    border-radius: 20px;
+    background-color: #190B32;
+    position: relative;
+    bottom: 50px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.box-resultado h2 {
+    color: #604299;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.box-resultado div {
+    font-size: 40px;
+    font-weight: bold;
+}
+
 /* SESSAO PROGRESSAO */
 
 .sessao-progressao {

@@ -7,7 +7,7 @@ function alertar() {
 function fecharAlerta() {
     const alerta = document.getElementById('div_alerta_conteudo')
 
-    alerta.classList.remove('alerta-conteudi')
+    alerta.classList.remove('alerta-conteudo')
     alerta.classList.add('display-hidden')
 }
 
@@ -32,6 +32,7 @@ function mostrarPratica() {
     button_inicio.style.display = 'flex'
     div_box_teste.style.display = 'none'
     div_sessao_progressao.style.display = 'none'
+    div_box_resultado.style.display = 'none'
 }
 
 function mostrarProgressao() {
