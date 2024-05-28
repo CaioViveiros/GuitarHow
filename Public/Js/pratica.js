@@ -1,177 +1,144 @@
-const listaQuestoes = [
-    {
-        questao: 'Qual agrupamento de notas compõe corretamente o acorde de Am?',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 2',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 3',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 4',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 5',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 6',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 7',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 8',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 9',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 10',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 11',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 12',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    },
-    {
-        questao: 'Pergunta 13',
-        respostas: {
-            alternativaA: 'A',
-            alternativaB: 'B',
-            alternativaC: 'C',
-            alternativaD: 'D',
-            correto: 'A'
-        }
-    }
-]
-
-let acertos = 0
-let numeroQuestao = 0
-let questaoAtual = ''
 let perguntasGeradas = []
 let posicaoQuestaoGerada = 0
+let numeroQuestao = 0
+
+const QUANTIDADE_DE_QUESTOES = 10
+
+function sortearQuestao() {
+    return Math.floor(Math.random() * QUANTIDADE_DE_QUESTOES) + 1;
+}
+
+function gerarPerguntas() {
+    for (;perguntasGeradas.length < 10;) {
+        let numeroSorteado = sortearQuestao()
+        if (perguntasGeradas.indexOf(numeroSorteado) == -1) {
+            perguntasGeradas.push(numeroSorteado)
+        }
+    }
+}
 
 function iniciarTeste() {
     aparecerTeste()
-
-    // Resetando variaveis
     posicaoQuestaoGerada = 0
     numeroQuestao = 1
     perguntasGeradas = []
-    questaoAtual = ''
-    acertos = 0
 
     gerarPerguntas()
-    atualizarQuestao()
-
+    buscarQuestao() 
+    buscarRespostas()
     div_numero_questao.innerHTML = numeroQuestao   
 }
 
-function proximaPergunta(alternativaEscolhida) {
-    let posicaoQuestaoAtual = perguntasGeradas[posicaoQuestaoGerada]
-    let respostaCorreta = listaQuestoes[posicaoQuestaoAtual].respostas.correto
-
-    if (alternativaEscolhida == respostaCorreta) {
-        acertos += 1
-    }
-
+function proximaPergunta() {
     if (numeroQuestao < 10) {
         numeroQuestao += 1
+        div_numero_questao.innerHTML = numeroQuestao   
         posicaoQuestaoGerada += 1
-        div_numero_questao.innerHTML = numeroQuestao
-        atualizarQuestao()
-        
+        buscarQuestao()
+        buscarRespostas()
+        atualizarQuestao()  
+
     } else {
-        div_acertos.innerHTML = `${acertos}/10`
         mostrarResultado()
     }
 }
+
+function buscarQuestao() {
+     // WEB DATA VIZ
+     let indice = perguntasGeradas[posicaoQuestaoGerada]
+
+     fetch("/questoes/buscarQuestao", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            indiceServer: indice
+        })
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(json => {
+                const pergunta = json.pergunta
+               atualizarQuestao(pergunta)  
+
+            });
+        } 
+    })
+}
+
+function atualizarQuestao(pergunta) {
+    p_questao.innerHTML = pergunta
+}
+
+function buscarRespostas() {
+    // WEB DATA VIZ
+    let indice = perguntasGeradas[posicaoQuestaoGerada]
+
+    fetch("/questoes/buscarRespostas", {
+       method: "POST",
+       headers: {
+           "Content-Type": "application/json"
+       },
+       body: JSON.stringify({
+           indiceServer: indice
+       })
+   }).then(function (resposta) {
+       if (resposta.ok) {
+           resposta.json().then(json => {
+               const alternativaA = json.alternativaA
+               const alternativaB = json.alternativaB
+               const alternativaC = json.alternativaC
+               const alternativaD = json.alternativaD
+               atualizarAlternativas(alternativaA, alternativaB, alternativaC, alternativaD)
+
+           });
+       } 
+   })
+}
+
+function atualizarAlternativas(alternativaA, alternativaB, alternativaC, alternativaD) {
+    alternativa_a.innerHTML = alternativaA
+    alternativa_b.innerHTML = alternativaB
+    alternativa_c.innerHTML = alternativaC
+    alternativa_d.innerHTML = alternativaD
+}
+
+function mostrarResultado() {
+    div_box_teste.style.display = 'none'
+    div_box_resultado.style.display = 'flex'
+}
+
+function aparecerTeste() {
+    button_inicio.style.display = 'none'
+    div_box_teste.style.display = 'flex'
+}
+
+// function registrar() {
+//     fetch("/pratica/registrar", {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({
+//             // crie um atributo que recebe o valor recuperado aqui
+//             // Agora vá para o arquivo routes/usuario.js
+//             acertosServer: acertos,
+//             idUsuarioServer: idUsuario
+//         }),
+//     })
+//         .then(function (resposta) {
+//             console.log("resposta: ", resposta);
+
+//             if (resposta.ok) {
+                
+//             } else {
+//                 throw "Houve um erro ao tentar realizar o cadastro!";
+//             }
+//         })
+//         .catch(function (resposta) {
+//             console.log(`#ERRO: ${resposta}`);
+//         });
+// }
 
 function responderA() {
     proximaPergunta('A')
@@ -187,39 +154,4 @@ function responderC() {
 
 function responderD() {
     proximaPergunta('D')
-}
-
-function sortearQuestao() {
-    return Math.floor(Math.random() * listaQuestoes.length)
-}
-
-function gerarPerguntas() {
-    while (perguntasGeradas.length < 10) {
-        let numeroSorteado = sortearQuestao()
-        if (perguntasGeradas.indexOf(numeroSorteado) === -1) {
-            perguntasGeradas.push(numeroSorteado)
-        }
-    }
-}
-
-function atualizarQuestao() {
-    let posicaoQuestaoAtual = perguntasGeradas[posicaoQuestaoGerada]
-    questaoAtual = listaQuestoes[posicaoQuestaoAtual].questao
-    p_questao.innerHTML = questaoAtual
-
-    let respostas = listaQuestoes[posicaoQuestaoAtual].respostas
-    alternativa_a.innerHTML = respostas.alternativaA
-    alternativa_b.innerHTML = respostas.alternativaB
-    alternativa_c.innerHTML = respostas.alternativaC
-    alternativa_d.innerHTML = respostas.alternativaD
-}
-
-function mostrarResultado() {
-    div_box_teste.style.display = 'none'
-    div_box_resultado.style.display = 'flex'
-}
-
-function aparecerTeste() {
-    button_inicio.style.display = 'none'
-    div_box_teste.style.display = 'flex'
 }

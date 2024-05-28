@@ -82,16 +82,13 @@ function validar() {
                     alertar()
 
                 } else {
-
                     sucessoCadastro()
 
                     setTimeout(() => {
                         trocarTela()
                     }, 1000);
 
-
                     dadosUsuario.push(usuario, email, senha)
-
                 }
             }
         }
@@ -110,6 +107,7 @@ function alertar() {
     alerta.classList.remove('display-hidden')
     alerta.classList.add('alerta')
 }
+
 function fecharAlerta() {
     const alerta = document.getElementById('div_alerta')
     alerta.classList.remove('alerta')
@@ -142,9 +140,7 @@ function cadastrarNivelAvancado() {
     cadastrar(usuario, email, senha, nivelExperiencia)
 }
 
-
 function cadastrar(usuario, email, senha, nivelExperiencia) {
-    
     // WEB DATA VIZ
     fetch("/usuarios/cadastrar", {
         method: "POST",
@@ -182,7 +178,6 @@ function cadastrar(usuario, email, senha, nivelExperiencia) {
 
 function sucessoCadastro() {
     const alerta = document.getElementById('div_sucesso')
-
     alerta.classList.remove('display-hidden')
     alerta.classList.add('alerta-cadastro')
 }
