@@ -486,7 +486,17 @@ header h2 span {
     height: 400px;
     border-radius: 20px;
     border: 3px solid #604299;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
 }
+
+#grafico {
+    background-color: transparent;
+    margin-right: 15px;
+}
+
 
 .box-evolucao {
     width: 100%;
@@ -515,3 +525,4 @@ header h2 span {
     background-color: #604299;
     border-radius: 20px;
 }
+
