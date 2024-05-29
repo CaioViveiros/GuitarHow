@@ -51,7 +51,8 @@ function buscarRespostas(req, res) {
                             alternativaA: resultadoRespostas[0].alternativaA,
                             alternativaB: resultadoRespostas[0].alternativaB,
                             alternativaC: resultadoRespostas[0].alternativaC,
-                            alternativaD: resultadoRespostas[0].alternativaD
+                            alternativaD: resultadoRespostas[0].alternativaD,
+                            correta: resultadoRespostas[0].correta
                         });
                 }
             }

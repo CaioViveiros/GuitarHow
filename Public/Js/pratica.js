@@ -1,6 +1,10 @@
 let perguntasGeradas = []
 let posicaoQuestaoGerada = 0
 let numeroQuestao = 0
+let alternativaEscolhida = ''
+let alternativaCorreta = ''
+
+let acertos = 0
 
 const QUANTIDADE_DE_QUESTOES = 10
 
@@ -22,6 +26,7 @@ function iniciarTeste() {
     posicaoQuestaoGerada = 0
     numeroQuestao = 1
     perguntasGeradas = []
+    acertos = 0
 
     gerarPerguntas()
     buscarQuestao() 
@@ -34,11 +39,14 @@ function proximaPergunta() {
         numeroQuestao += 1
         div_numero_questao.innerHTML = numeroQuestao   
         posicaoQuestaoGerada += 1
+
+        validarAcerto()
         buscarQuestao()
         buscarRespostas()
         atualizarQuestao()  
 
     } else {
+        validarAcerto()
         mostrarResultado()
     }
 }
@@ -89,8 +97,8 @@ function buscarRespostas() {
                const alternativaB = json.alternativaB
                const alternativaC = json.alternativaC
                const alternativaD = json.alternativaD
+               alternativaCorreta = json.correta
                atualizarAlternativas(alternativaA, alternativaB, alternativaC, alternativaD)
-
            });
        } 
    })
@@ -106,6 +114,7 @@ function atualizarAlternativas(alternativaA, alternativaB, alternativaC, alterna
 function mostrarResultado() {
     div_box_teste.style.display = 'none'
     div_box_resultado.style.display = 'flex'
+    div_acertos.innerHTML = `${acertos}/10`
 }
 
 function aparecerTeste() {
@@ -113,45 +122,56 @@ function aparecerTeste() {
     div_box_teste.style.display = 'flex'
 }
 
-// function registrar() {
-//     fetch("/pratica/registrar", {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify({
-//             // crie um atributo que recebe o valor recuperado aqui
-//             // Agora vá para o arquivo routes/usuario.js
-//             acertosServer: acertos,
-//             idUsuarioServer: idUsuario
-//         }),
-//     })
-//         .then(function (resposta) {
-//             console.log("resposta: ", resposta);
-
-//             if (resposta.ok) {
-                
-//             } else {
-//                 throw "Houve um erro ao tentar realizar o cadastro!";
-//             }
-//         })
-//         .catch(function (resposta) {
-//             console.log(`#ERRO: ${resposta}`);
-//         });
-// }
-
 function responderA() {
-    proximaPergunta('A')
+    alternativaEscolhida = 'A'
+    proximaPergunta()
 }
 
 function responderB() {
-    proximaPergunta('B')
+    alternativaEscolhida = 'B'
+    proximaPergunta()
 }
 
 function responderC() {
-    proximaPergunta('C')
+    alternativaEscolhida = 'C'
+    proximaPergunta()
 }
 
 function responderD() {
-    proximaPergunta('D')
+    alternativaEscolhida = 'D'
+    proximaPergunta()
+}
+
+function validarAcerto() {
+    if (alternativaEscolhida == alternativaCorreta) {
+        acertos += 1
+        console.log(acertos)
+    }
+}
+
+function registrar() {
+    fetch("/pratica/registrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            acertosServer: acertos,
+            idUsuarioServer: idUsuario
+        }),
+    })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                
+            } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+        })
+        .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
 }
