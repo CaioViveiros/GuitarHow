@@ -40,25 +40,26 @@ select * from questoes;
 
 create table respostas (
 idResposta int primary key auto_increment,
+fkQuestao int,
 alternativaA varchar(45),
 alternativaB varchar(45),
 alternativaC varchar(45),
 alternativaD varchar(45),
-fkQuestao int
+correta char(1)
 );
 
-insert into respostas (alternativaA, alternativaB, alternativaC, alternativaD, fkQuestao) values
-('AA', 'BA', 'CA', 'DA', 1),
-('AB', 'BB', 'CB', 'DB', 2),
-('AC', 'BC', 'CC', 'DC', 3),
-('AD', 'BD', 'CD', 'DD', 4),
-('AE', 'BE', 'CE', 'DE', 5),
-('AF', 'BF', 'CF', 'DF', 6),
-('AG', 'BG', 'CG', 'DG', 7),
-('AH', 'BH', 'CH', 'DH', 8),
-('AI', 'BI', 'CI', 'DI', 9),
-('AJ', 'BJ', 'CJ', 'DJ', 10);
+insert into respostas (fkQuestao, alternativaA, alternativaB, alternativaC, alternativaD, correta) values
+(1, 'AA', 'BA', 'CA', 'DA', 'A'),
+(2, 'AB', 'BB', 'CB', 'DB', 'A'),
+(3, 'AC', 'BC', 'CC', 'DC', 'A'),
+(4, 'AD', 'BD', 'CD', 'DD', 'A'),
+(5, 'AE', 'BE', 'CE', 'DE', 'A'),
+(6, 'AF', 'BF', 'CF', 'DF', 'A'),
+(7, 'AG', 'BG', 'CG', 'DG', 'A'),
+(8, 'AH', 'BH', 'CH', 'DH', 'A'),
+(9, 'AI', 'BI', 'CI', 'DI', 'A'),
+(10, 'AJ', 'BJ', 'CJ', 'DJ', 'A');
 
 select * from respostas;
 
-select count(idQuestao) from questoes;
+

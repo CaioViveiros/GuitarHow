@@ -42,26 +42,7 @@ function mostrarProgressao() {
     div_sessao_progressao.style.display = 'flex'
 }
 
-const ctx = document.getElementById('grafico').getContext('2d');
 
-ctx.canvas.width = 2900
-ctx.canvas.height = 700
-
-const chart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['Prática 1', 'Pratica 2', 'Pratica 3'],
-    datasets: [{
-      label: 'Ultimas práticas',
-      data: [8, 4, 10],
-      borderWidth: 4,
-      borderColor: '#604299'
-    }]
-  },
-  options: {
-    
-  }
-});
 
 
 

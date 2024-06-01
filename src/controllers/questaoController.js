@@ -9,15 +9,15 @@ function buscarQuestao(req, res) {
 
         questaoModel.buscarQuestao(indice)
             .then(
-                function (resultadoAutenticar) {
-                    console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
-                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
 
-                    if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
+                    if (resultado.length == 1) {
+                        console.log(resultado);
 
                         res.json({
-                            pergunta: resultadoAutenticar[0].pergunta,
+                            pergunta: resultado[0].pergunta,
                         });
                 }
             }
