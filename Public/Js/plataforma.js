@@ -40,6 +40,9 @@ function mostrarProgressao() {
     div_sessao_conteudo.style.display = 'none'
     div_sessao_pratica.style.display = 'none'
     div_sessao_progressao.style.display = 'flex'
+    limparGrafico()
+    capturarUltimasPraticas()
+    totalPraticas()
 }
 
 

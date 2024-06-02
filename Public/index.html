@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./css/website.css">
     <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="./js/link.js"></script>
-    <script src="./js/website.js"></script>
+    <script src="./js/contato.js"></script>
     <title>Website | GuitarHow</title>
 </head>
 
@@ -75,9 +75,9 @@
         <h1>Contato</h1>
         <div class="sessao">
             <form class="box-contato" >
-               <input required type="text" class="input-email" placeholder="E-mail">
-               <input required type="text" class="input-mensagem" placeholder="Mensagem">
-               <button type="submit">Enviar</button>
+               <input required type="text" class="input-email" placeholder="E-mail" id="input_email">
+               <input required type="text" class="input-mensagem" placeholder="Mensagem" id="input_mensagem">
+               <button type="submit" onclick="enviarMensagem()">Enviar</button>
             </form>
         </div>
     </div>

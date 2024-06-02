@@ -19,24 +19,17 @@ function registrar(req, res) {
     }
 }
 
-function capturar(req, res) {
+function capturarUltimasPraticas(req, res) {
     var idUsuario = req.body.idUsuarioServer;
+    const limiteLinhas = 10
 
-    if (idUsuario == undefined) {
-        res.status(400).send("O id esta indefinido!");
-    } else {
-        praticaModel.capturar(idUsuario)
-            .then(
-                function (resultado) {
-                    if (resultado.length == 1) {
-                        res.json({
-                            idPratica: resultado[0].idPratica,
-                            acertos: resultado[0].acertos,
-                        });
-                    }
-                }
-            )
-    }
+    praticaModel.capturarUltimasPraticas(idUsuario, limiteLinhas).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    })
 }
 
 function totalPraticas(req, res) {
@@ -57,9 +50,21 @@ function totalPraticas(req, res) {
     }
 }
 
+function capturarTodasPraticas(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+
+    praticaModel.capturarTodasPraticas(idUsuario).then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    })
+}
 
 module.exports = {
     registrar,
-    capturar,
-    totalPraticas
+    capturarUltimasPraticas,
+    totalPraticas,
+    capturarTodasPraticas
 }

@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="./css/plataforma.css">
     <script src="https://kit.fontawesome.com/1f12696c43.js" crossorigin="anonymous"></script>
     <script src="./js/link.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="./Js/plataforma.js"></script>   
+    <script src="./Js/pratica.js"></script>
+    <script defer src="./Js/progressao.js"></script>
     <title>GuitarHow</title>
 </head>
 <body>
@@ -34,7 +37,7 @@
                     <span id="span_nome_usuario"></span>
                     <p>Email</p>
                     <span id="span_email_usuario"></span>
-                    <p>Nível de experiencia</p>
+                    <p>Nível de experiência</p>
                     <span id="span_experiencia"></span>
                 </div>
                 <div class="rigth-side">
@@ -71,19 +74,23 @@
             <button class="botao-inicio" id="button_inicio" onclick="iniciarTeste()">Iniciar Prática</button>
             <div class="box-teste" id="div_box_teste">
                 <div class="box-pergunta">
-                    <div class="numero-questao" id="div_numero_questao">1</div>
-                    <p>Qual agrupamento de notas compõe corretamente o acorde de Am?</p>
+                    <div class="numero-questao" id="div_numero_questao"></div>
+                    <p id="p_questao"></p>
                 </div>
                 <div class="box-resposta">
                     <div class="options">
-                        <div onclick="proximaPergunta()">A</div>
-                        <div onclick="proximaPergunta()">B</div>
+                        <div onclick="responderA()" id="alternativa_a">A</div>
+                        <div onclick="responderB()" id="alternativa_b">B</div>
                     </div>
                     <div class="options">
-                        <div onclick="proximaPergunta()">C</div>
-                        <div onclick="proximaPergunta()">D</div>
+                        <div onclick="responderC()" id="alternativa_c">C</div>
+                        <div onclick="responderD()" id="alternativa_d">D</div>
                     </div>
                 </div>
+            </div>
+            <div class="box-resultado" id="div_box_resultado">
+                <h2>Pontuação</h2>
+                <div id="div_acertos"></div>
             </div>
         </div>
 
@@ -91,26 +98,19 @@
             <div class="box-metricas">
                 <div>
                     <small>Última prática</small>
-                    <span>7/10</span>
+                    <span id="ultima_pratica">0</span>
                 </div>
                 <div>
-                    <small>Média (Ultimas 5)</small>
-                    <span>8.3</span>
+                    <small>Média (Últimas 5)</small>
+                    <span id="media_praticas">0</span>
                 </div>
                 <div>
                     <small>Total de práticas</small>
-                    <span>14</span>
+                    <span id="total_praticas">0</span>
                 </div>
             </div>
             <div class="box-grafico">
-
-            </div>
-            <div class="box-evolucao">
-                <p>Intermediário</p>
-                <div class="fundo">
-                    <div class="barra"></div>
-                </div>
-                <p>Avançado</p>
+                <canvas id="grafico"></canvas>
             </div>
         </div>
         

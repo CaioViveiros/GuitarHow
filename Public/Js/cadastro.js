@@ -100,8 +100,6 @@ function trocarTela() {
     div_screen2.style.display = 'flex'
 }
 
-const dadosUsuario = []
-
 function alertar() {
     const alerta = document.getElementById('div_alerta')
     alerta.classList.remove('display-hidden')
@@ -115,6 +113,8 @@ function fecharAlerta() {
 }
 
 let nivelExperiencia = 0
+
+const dadosUsuario = []
 
 function cadastrarNivelIniciante() {
     let usuario = dadosUsuario[0]
@@ -141,15 +141,12 @@ function cadastrarNivelAvancado() {
 }
 
 function cadastrar(usuario, email, senha, nivelExperiencia) {
-    // WEB DATA VIZ
     fetch("/usuarios/cadastrar", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
             usuarioServer: usuario,
             emailServer: email,
             senhaServer: senha,
@@ -163,15 +160,12 @@ function cadastrar(usuario, email, senha, nivelExperiencia) {
                 if (nivelExperiencia > 0) {
                     irParaLogin()
                 } else {
-                    alert('Nivel de experiencia menor que 0')
+                    console.log('ERRO: Nivel de experiencia menor que 0')
                 }
             } else {
-                throw "Houve um erro ao tentar realizar o cadastro!";
+                console.log("ERRO: falha ao tentar realizar o cadastro!") 
             }
         })
-        .catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
 
     return false;
 }

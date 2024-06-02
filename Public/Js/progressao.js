@@ -1,11 +1,7 @@
 const idUsuario = sessionStorage.ID_USUARIO
 
-window.addEventListener('load', function() {
-    totalPraticas()
-});
-
-function capturar() {
-    fetch("/pratica/capturar", {
+function capturarUltimasPraticas() {
+    fetch("/pratica/capturarUltimasPraticas", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -16,14 +12,12 @@ function capturar() {
     }).then(function (resposta) {
 
         if (resposta.ok) {
-            resposta.json().then(json => {
-                sessionStorage.ID_PRATICA = json.idPratica;
-                sessionStorage.ACERTOS = json.acertos;
+            resposta.json().then(function (resposta) {
+                resposta.reverse()
+                atualizarGrafico(resposta)
 
-                ultima_pratica.innerHTML = `${json.acertos}/10`
-
-                totalPraticas()
-            })
+                ultima_pratica.innerHTML = `${resposta[resposta.length - 1].acertos}/10`
+            });
         }
     })
 }
@@ -44,11 +38,12 @@ function totalPraticas() {
                 sessionStorage.TOTAL_PRATICAS = json.totalPraticas;
 
                 total_praticas.innerHTML = json.totalPraticas
+
+                evoluirBarra(resposta)
             })
         }
     })
 }
-
 
 const ctx = document.getElementById('grafico').getContext('2d');
 
@@ -60,7 +55,7 @@ const grafico = new Chart(ctx, {
     data: {
         labels: [],
         datasets: [{
-            label: 'Ultimas pontuações:',
+            label: 'Ultimas pontuações',
             data: [],
             borderWidth: 4,
             borderColor: '#604299'
@@ -68,28 +63,28 @@ const grafico = new Chart(ctx, {
     }
 });
 
-let listaDados = [0]
-let listaPraticas = [0]
+function atualizarGrafico(resposta) {
+    let somaDados = 0
+    for (let posicao = 0; posicao < resposta.length; posicao++) {
+        let dadoAtual = resposta[posicao];
+        somaDados += dadoAtual.acertos
 
-function atualizarGrafico() {
-    const idPratica = sessionStorage.ID_PRATICA
-    const acertos = sessionStorage.ACERTOS
+        grafico.data.labels.push(dadoAtual.hora)
+        grafico.data.datasets[0].data.push(dadoAtual.acertos)
 
-    if (listaDados.length >= 5) {
-        listaDados = []
-        listaPraticas = []
-        grafico.data.datasets[0].data = []
-        grafico.data.labels = []
+        let mediaDados = somaDados / resposta.length
+        media_praticas.innerHTML = mediaDados.toFixed(1)
     }
-        listaDados.push(acertos)
-        listaPraticas.push(idPratica)
 
-        let dadoAtual = listaDados[listaDados.length - 1]
-        let praticaAtual = listaPraticas[listaPraticas.length - 1]
-
-        grafico.data.datasets[0].data.push(dadoAtual)
-        grafico.data.labels.push(`Prática ${praticaAtual}`)
-
-        grafico.update()
+    grafico.update()
 }
 
+function limparGrafico() {
+    grafico.data.labels = []
+    grafico.data.datasets[0].data = []
+
+    grafico.update()
+}
+
+
+ 

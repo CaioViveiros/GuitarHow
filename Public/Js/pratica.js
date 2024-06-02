@@ -46,6 +46,7 @@ function proximaPergunta() {
         atualizarQuestao()
 
     } else {
+
         validarAcerto()
         registrar()
         mostrarResultado()
@@ -162,12 +163,4 @@ function registrar() {
             idUsuarioServer: idUsuario
         }),
     })
-        .then(function (resposta) {
-            if (resposta.ok) {
-                capturar()
-                atualizarGrafico()
-            } else {
-                throw "Houve um erro ao tentar realizar o cadastro!"
-            }
-        })
 }
