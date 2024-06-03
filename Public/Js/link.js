@@ -22,4 +22,7 @@ function irParaPlataformaIntermediario() {
 function irParaPlataformaAvancado() {
     window.location.href = './plataforma_avancado.html'
 }
+function irParaModulo1() {
+    window.location.href = './Conteudos/modulo1.html'
+}
 

@@ -13,7 +13,7 @@ function sortearQuestao() {
 }
 
 function gerarPerguntas() {
-    for (; perguntasGeradas.length < 10;) {
+    for (; perguntasGeradas.length < 10 ;) {
         let numeroSorteado = sortearQuestao()
         if (perguntasGeradas.indexOf(numeroSorteado) == -1) {
             perguntasGeradas.push(numeroSorteado)
@@ -46,15 +46,14 @@ function proximaPergunta() {
         atualizarQuestao()
 
     } else {
-
         validarAcerto()
         registrar()
         mostrarResultado()
+        
     }
 }
 
 function buscarQuestao() {
-    // WEB DATA VIZ
     let indice = perguntasGeradas[posicaoQuestaoGerada]
 
     fetch("/questoes/buscarQuestao", {
@@ -70,7 +69,6 @@ function buscarQuestao() {
             resposta.json().then(json => {
                 const pergunta = json.pergunta
                 atualizarQuestao(pergunta)
-
             });
         }
     })
@@ -81,7 +79,6 @@ function atualizarQuestao(pergunta) {
 }
 
 function buscarRespostas() {
-    // WEB DATA VIZ
     let indice = perguntasGeradas[posicaoQuestaoGerada]
 
     fetch("/questoes/buscarRespostas", {

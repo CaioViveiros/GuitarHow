@@ -39,7 +39,6 @@ function totalPraticas() {
 
                 total_praticas.innerHTML = json.totalPraticas
 
-                evoluirBarra(resposta)
             })
         }
     })
@@ -86,5 +85,57 @@ function limparGrafico() {
     grafico.update()
 }
 
+function capturarTodasPraticas() {
+    fetch("/pratica/capturarTodasPraticas", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuario
+        })
+    }).then(function (resposta) {
 
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                evoluirEXP(resposta)
+                console.log(resposta)
+            });
+        }
+    })
+}
+
+function evoluirEXP(resposta) {
+    let EXP = 0
+    for (let posicao = 0; posicao < resposta.length; posicao++) {
+        let acertoAtual = resposta[posicao].acertos;
+
+        if (acertoAtual == 10) {
+            EXP += 1
+        }
+    }
+    console.log(EXP)
+
+    if (EXP > 5 && EXP <= 10) {
+        let novaExperiencia = 3
+        evoluirNivel(novaExperiencia)
+    } else if (EXP == 5) {
+        let novaExperiencia = 2
+        evoluirNivel(novaExperiencia)
+    } 
+
+}
+
+function evoluirNivel(novaExperiencia) {
+    fetch(`/experiencia/evoluirNivel`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            nivelExperienciaServer: novaExperiencia,
+            idUsuarioServer: idUsuario
+        })
+    })
+}
  

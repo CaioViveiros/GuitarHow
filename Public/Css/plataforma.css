@@ -366,9 +366,9 @@ header h2 span {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    right: 390px;
-    bottom: 50px;
+    position: fixed;
+    left: 530px;
+    top: 190px;
     font-size: 22px;
     color: #604299;
     font-weight: bold;

@@ -1,12 +1,11 @@
 function alertar() {    
-    let alerta = document.getElementById('div_alerta_conteudo')
+    const alerta = document.getElementById('div_alerta_conteudo')
     alerta.classList.remove('display-hidden')
     alerta.classList.add('alerta-conteudo')
 }
 
 function fecharAlerta() {
     const alerta = document.getElementById('div_alerta_conteudo')
-
     alerta.classList.remove('alerta-conteudo')
     alerta.classList.add('display-hidden')
 }
@@ -42,6 +41,7 @@ function mostrarProgressao() {
     div_sessao_progressao.style.display = 'flex'
     limparGrafico()
     capturarUltimasPraticas()
+    capturarTodasPraticas()
     totalPraticas()
 }
 

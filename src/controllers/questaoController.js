@@ -5,7 +5,7 @@ function buscarQuestao(req, res) {
 
     if (indice == undefined) {
         res.status(400).send("Seu indice está undefined!");
-        
+
     } else {
         questaoModel.buscarQuestao(indice)
             .then(
