@@ -4,26 +4,35 @@ function validar() {
     let senha = input_senha.value
     let confirmacaoSenha = input_confirmacao_senha.value
 
-    const erroCampoVazio = 'Por favor, preencha todos os campos para realizar o cadastro'
+    const ERROS = {
+        campoVazio: 'Por favor, preencha todos os campos para realizar o cadastro',
+        emailInvalido: 'Por favor, insira um E-mail válido para realizar o cadastro',
+        tamanhoSenhaInvalido: 'Sua senha deve ter no minimo 6 caracteres',
+        senhaSemMaiuscula: 'Sua senha deve ter no minimo uma letra maiuscula',
+        senhaSemMinuscula: 'Sua senha deve ter no minimo uma letra minuscula',
+        senhaSemNumero: 'Sua senha deve ter no minimo um numero',
+        senhaSemCaractereEspecial: 'Sua senha deve ter no minimo um caracter especial',
+        senhasDiferentes: 'Suas senhas devem ser iguais'
+    }
 
     if (usuario == '') {
-        mensagem_alerta.innerHTML = erroCampoVazio
+        mensagem_alerta.innerHTML = ERROS.campoVazio
         alertar()
 
     } else if (email == '') {
-        mensagem_alerta.innerHTML = erroCampoVazio
+        mensagem_alerta.innerHTML = ERROS.campoVazio
         alertar()
 
     } else if (senha == '') {
-        mensagem_alerta.innerHTML = erroCampoVazio
+        mensagem_alerta.innerHTML = ERROS.campoVazio
         alertar()
 
     } else if (confirmacaoSenha == '') {
-        mensagem_alerta.innerHTML = erroCampoVazio
+        mensagem_alerta.innerHTML = ERROS.campoVazio
         alertar()
 
     } else if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
-        mensagem_alerta.innerHTML = 'Por favor, insira um E-mail válido para realizar o cadastro'
+        mensagem_alerta.innerHTML = ERROS.emailInvalido
         alertar()
 
     } else {
@@ -31,7 +40,7 @@ function validar() {
         const tamanhoSenha = senha.length
 
         if (tamanhoSenha < 6) {
-            mensagem_alerta.innerHTML = 'Sua senha deve ter no minimo 6 caracteres'
+            mensagem_alerta.innerHTML = ERROS.tamanhoSenhaInvalido
             alertar()
 
         } else {
@@ -60,25 +69,25 @@ function validar() {
             }
 
             if (temMaiuscula == false) {
-                mensagem_alerta.innerHTML = 'Sua senha deve ter no minimo uma letra maiuscula'
+                mensagem_alerta.innerHTML = ERROS.senhaSemMaiuscula
                 alertar()
             }
             if (temMinuscula == false) {
-                mensagem_alerta.innerHTML = 'Sua senha deve ter no minimo uma letra minuscula'
+                mensagem_alerta.innerHTML = ERROS.senhaSemMinuscula
                 alertar()
             }
             if (temNumero == false) {
-                mensagem_alerta.innerHTML = 'Sua senha deve ter no minimo um numero'
+                mensagem_alerta.innerHTML = ERROS.senhaSemNumero
                 alertar()
             }
             if (temCaractereEspecial == false) {
-                mensagem_alerta.innerHTML = 'Sua senha deve ter no minimo um caracter especial'
+                mensagem_alerta.innerHTML = ERROS.senhaSemCaractereEspecial
                 alertar()
             }
 
             if (temMaiuscula && temMinuscula && temNumero && temCaractereEspecial) {
                 if (senha != confirmacaoSenha) {
-                    mensagem_alerta.innerHTML = 'Suas senhas devem ser iguais'
+                    mensagem_alerta.innerHTML = ERROS.senhasDiferentes
                     alertar()
 
                 } else {
@@ -163,7 +172,7 @@ function cadastrar(usuario, email, senha, nivelExperiencia) {
                     console.log('ERRO: Nivel de experiencia menor que 0')
                 }
             } else {
-                console.log("ERRO: falha ao tentar realizar o cadastro!") 
+                console.log("ERRO: falha ao tentar realizar o cadastro!")
             }
         })
 

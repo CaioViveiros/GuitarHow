@@ -44,12 +44,10 @@ function proximaPergunta() {
         buscarQuestao()
         buscarRespostas()
         atualizarQuestao()
-
     } else {
         validarAcerto()
         registrar()
         mostrarResultado()
-        
     }
 }
 
