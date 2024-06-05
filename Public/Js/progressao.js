@@ -122,7 +122,7 @@ function evoluirEXP(resposta) {
     } else if (EXP == 5) {
         let novaExperiencia = 2
         evoluirNivel(novaExperiencia)
-    } 
+    }
 
 }
 
@@ -138,4 +138,4 @@ function evoluirNivel(novaExperiencia) {
         })
     })
 }
- 
+

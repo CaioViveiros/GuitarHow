@@ -1,8 +1,8 @@
-var praticaModel = require("../models/praticaModel");
+let praticaModel = require("../models/praticaModel");
 
 function registrar(req, res) {
-    var idUsuario = req.body.idUsuarioServer;
-    var acertos = req.body.acertosServer;
+    let idUsuario = req.body.idUsuarioServer;
+    let acertos = req.body.acertosServer;
 
     if (acertos == undefined) {
         res.status(400).send("Os acertos estão indefinidos!");
@@ -20,7 +20,7 @@ function registrar(req, res) {
 }
 
 function capturarUltimasPraticas(req, res) {
-    var idUsuario = req.body.idUsuarioServer;
+    let idUsuario = req.body.idUsuarioServer;
     const limiteLinhas = 10
 
     praticaModel.capturarUltimasPraticas(idUsuario, limiteLinhas).then(function (resultado) {
@@ -33,7 +33,7 @@ function capturarUltimasPraticas(req, res) {
 }
 
 function totalPraticas(req, res) {
-    var idUsuario = req.body.idUsuarioServer;
+    let idUsuario = req.body.idUsuarioServer;
 
     if (idUsuario == undefined) {
         res.status(400).send("O id esta indefinido!");
@@ -51,7 +51,7 @@ function totalPraticas(req, res) {
 }
 
 function capturarTodasPraticas(req, res) {
-    var idUsuario = req.body.idUsuarioServer;
+    let idUsuario = req.body.idUsuarioServer;
 
     praticaModel.capturarTodasPraticas(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
