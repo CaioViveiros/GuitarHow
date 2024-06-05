@@ -25,4 +25,7 @@ function irParaPlataformaAvancado() {
 function irParaModulo1() {
     window.location.href = './Conteudos/modulo1.html'
 }
+function irParaModulo2() {
+    window.location.href = './Conteudos/modulo2.html'
+}
 

@@ -1,14 +1,14 @@
-var database = require("../database/config")
+let database = require("../database/config")
 
-function buscarQuestao(indice) {
-    var instrucaoSql = `
-        SELECT pergunta FROM questoes WHERE idQuestao = ${indice};
+function buscarQuestao(indice, nivelExperiencia) {
+    let instrucaoSql = `
+        SELECT pergunta FROM questoes WHERE idQuestao = ${indice} AND fkExperiencia = ${nivelExperiencia};
     `;
     return database.executar(instrucaoSql);
 }
 
 function buscarRespostas(indice) {
-    var instrucaoSql = `
+    let instrucaoSql = `
         SELECT alternativaA, alternativaB, alternativaC, alternativaD, correta FROM respostas WHERE fkQuestao = ${indice};
     `;
     return database.executar(instrucaoSql);

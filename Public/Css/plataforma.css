@@ -405,6 +405,7 @@ header h2 span {
     align-items: center;
     border-radius: 20px;
     transition: 0.7s;
+    text-align: center;
 }
 
 .options div:hover {

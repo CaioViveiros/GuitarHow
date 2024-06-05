@@ -6,10 +6,21 @@ let alternativaCorreta = ''
 
 let acertos = 0
 
-const QUANTIDADE_DE_QUESTOES = 10
-
+const TOTAL_QUESTOES = 20
 function sortearQuestao() {
-    return Math.floor(Math.random() * QUANTIDADE_DE_QUESTOES) + 1;
+    const nivelExperiencia = sessionStorage.NIVEL_EXPERIENCIA
+
+    if (nivelExperiencia == 1){
+        return Math.floor(Math.random() * TOTAL_QUESTOES) + 1;
+    }
+
+    if (nivelExperiencia == 2){
+        return Math.floor(Math.random() * TOTAL_QUESTOES) + 21;
+    }
+
+    if (nivelExperiencia == 3){
+        return Math.floor(Math.random() * TOTAL_QUESTOES) + 41;
+    }
 }
 
 function gerarPerguntas() {
@@ -32,6 +43,7 @@ function iniciarTeste() {
     buscarQuestao()
     buscarRespostas()
     div_numero_questao.innerHTML = numeroQuestao
+    console.log(perguntasGeradas)
 }
 
 function proximaPergunta() {
@@ -53,14 +65,15 @@ function proximaPergunta() {
 
 function buscarQuestao() {
     let indice = perguntasGeradas[posicaoQuestaoGerada]
-
+    let nivelExperiencia = sessionStorage.NIVEL_EXPERIENCIA
     fetch("/questoes/buscarQuestao", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            indiceServer: indice
+            indiceServer: indice,
+            nivelExperienciaServer: nivelExperiencia
         })
     }).then(function (resposta) {
         if (resposta.ok) {

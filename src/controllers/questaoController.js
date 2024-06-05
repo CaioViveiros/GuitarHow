@@ -1,13 +1,15 @@
-var questaoModel = require("../models/questaoModel");
+let questaoModel = require("../models/questaoModel");
 
 function buscarQuestao(req, res) {
-    var indice = req.body.indiceServer;
+    let indice = req.body.indiceServer;
+    let nivelExperiencia = req.body.nivelExperienciaServer;
 
     if (indice == undefined) {
         res.status(400).send("Seu indice está undefined!");
-
+    } else if (nivelExperiencia == undefined) {
+        res.status(400).send("Seu nivel de experiencia está undefined!");
     } else {
-        questaoModel.buscarQuestao(indice)
+        questaoModel.buscarQuestao(indice, nivelExperiencia)
             .then(
                 function (resultado) {
 
@@ -24,7 +26,7 @@ function buscarQuestao(req, res) {
 }
 
 function buscarRespostas(req, res) {
-    var indice = req.body.indiceServer;
+    let indice = req.body.indiceServer;
 
     if (indice == undefined) {
         res.status(400).send("Seu indice está undefined!");
